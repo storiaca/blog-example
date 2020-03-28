@@ -4,7 +4,7 @@ import classes from "./Sidebar.module.css";
 
 function Sidebar() {
   return (
-    <div>
+    <div className={classes.SidebarMain}>
       <h2>Blog categories</h2>
       <ul>
         <li>

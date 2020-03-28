@@ -7,7 +7,7 @@ function Post() {
   // const { post, setPost } = useState();
 
   return (
-    <div>
+    <div className={classes.PostMain}>
       <div className={classes.SinglePost}>
         <div className={classes.SinglePostHeader}>
           <div className={classes.SinglePostInfo}>
