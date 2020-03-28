@@ -1,0 +1,56 @@
+.SinglePost {
+  border: 1px solid #000;
+  padding: 10px 10px 10px 20px;
+}
+
+.SinglePostHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.SinglePostInfo .SinglePostImage {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #000;
+  display: inline-block;
+}
+
+.SingePostTitle {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+.SingePostTitle h2 {
+  margin: 0 0 6px;
+}
+
+.SingePostTitle p {
+  margin: 0;
+}
+
+.SinglePostButtons button {
+  margin: 0 10px;
+  padding: 5px 0;
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+  border: none;
+  width: 75px;
+}
+
+.SinglePostButtons button:last-child {
+  margin: 0;
+}
+
+.SinglePostThumb {
+  display: flex;
+  justify-content: center;
+}
+
+.SinglePostThumb div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  margin: 0 6px;
+}

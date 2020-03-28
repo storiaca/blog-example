@@ -6,25 +6,25 @@ function Header() {
     <header className={classes.HeaderBlog}>
       <nav className={classes.HeaderNav}>
         <div className={classes.HeaderNavLogo}>
-          <a href="#">My Blog</a>
+          <a href="/#">My Blog</a>
         </div>
         <ul className={classes.HeaderNavMenu}>
           <input type="text" name="search" id="search" placeholder="Search" />
 
           <li>
-            <a href="#">Link 1</a>
+            <a href="/#">Link 1</a>
           </li>
           <li>
-            <a href="#">Link 2</a>
+            <a href="/#">Link 2</a>
           </li>
           <li>
-            <a href="#">Link 3</a>
+            <a href="/#">Link 3</a>
           </li>
           <li>
-            <a href="#">My profile</a>
+            <a href="/#">My profile</a>
           </li>
           <li>
-            <a href="#">Logout</a>
+            <a href="/#">Logout</a>
           </li>
         </ul>
       </nav>
