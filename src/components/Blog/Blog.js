@@ -15,7 +15,7 @@ function Blog() {
           <span>
             <a href="/#">X</a>
           </span>
-          <p>Container for showing applicatin messages</p>
+          <p>Container for showing application messages</p>
         </div>
         <div className={classes.BtnAddPost}>
           <button type="submit">Add post</button>
@@ -25,8 +25,6 @@ function Blog() {
         <Sidebar />
       </div>
       <div>
-        <Post />
-        <Post />
         <Post />
       </div>
     </div>
