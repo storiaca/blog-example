@@ -3,7 +3,10 @@ import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Post from "../Post/Post";
 
+import Form from "../PostForm/PostForm";
+
 import classes from "./Blog.module.css";
+import PostForm from "../PostForm/PostForm";
 
 function Blog() {
   return (
@@ -13,7 +16,7 @@ function Blog() {
         <h1>Welcome to my blog</h1>
         <div className={classes.BlogMessageContent}>
           <span>
-            <a href="/#">X</a>
+            <a href="/#">&times;</a>
           </span>
           <p>Container for showing application messages</p>
         </div>
@@ -26,6 +29,7 @@ function Blog() {
       </div>
       <div>
         <Post />
+        <PostForm />
       </div>
     </div>
   );

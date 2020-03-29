@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import classes from "./Sidebar.module.css";
 
-function Sidebar() {
+const Sidebar = () => {
+  const [data, setData] = useState({ resultData: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        "https://frontend-api-test-nultien.azurewebsites.net/api/Category"
+      );
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={classes.SidebarMain}>
       <h2>Blog categories</h2>
       <ul>
-        <li>
-          <a href="/#">Category 1</a>
-        </li>
-        <li>
-          <a href="/#">Category 2</a>
-        </li>
-        <li>
-          <a href="/#">Category 3</a>
-        </li>
+        {data.resultData.map(item => (
+          <li key={item.id}>
+            <a href="/#">{item.name}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
 export default Sidebar;

@@ -7,3 +7,8 @@
 .SidebarMain h2 {
   margin-top: 15px;
 }
+
+.SidebarMain ul {
+  list-style-type: none;
+  padding-left: 0;
+}
