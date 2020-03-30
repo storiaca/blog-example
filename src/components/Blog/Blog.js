@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Sidebar from "../Sidebar/Sidebar";
 import Post from "../Post/Post";
 
-import Form from "../PostForm/PostForm";
+import Modal from "../Modal/Modal";
+import useModal from "../../hooks/useModal";
 
 import classes from "./Blog.module.css";
 import PostForm from "../PostForm/PostForm";
 
 function Blog() {
+  //const [closeModal, setCloseModal] = useState(true);
+
+  const { isShowing, toggle } = useModal();
+
   return (
     <div className={classes.BlogMain}>
       <div></div>
@@ -21,7 +26,7 @@ function Blog() {
           <p>Container for showing application messages</p>
         </div>
         <div className={classes.BtnAddPost}>
-          <button type="submit">Add post</button>
+          <button onClick={toggle}>Add post</button>
         </div>
       </div>
       <div>
@@ -29,7 +34,9 @@ function Blog() {
       </div>
       <div>
         <Post />
-        <PostForm />
+        <Modal title={"Add Blog Post"} isShowing={isShowing} hide={toggle}>
+          <PostForm />
+        </Modal>
       </div>
     </div>
   );
