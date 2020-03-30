@@ -1,17 +1,19 @@
 import React from "react";
 
-import classes from "./PostForm.module.css";
-const PostForm = () => {
+import classes from "./AddPostForm.module.css";
+const AddPostForm = () => {
   return (
-    <div>
+    <div className={classes.FormWrap}>
       <form action="">
         <div className={classes.FormInput}>
           <label htmlFor="titlePost">Title</label>
           <input type="text" name="titlePost" id="titlePost" />
+          <span>*</span>
         </div>
         <div className={classes.FormInput}>
           <label htmlFor="textPost">Text</label>
           <textarea name="textPost" rows="10" id="textPost"></textarea>
+          <span>*</span>
         </div>
         <div className={classes.FormButtons}>
           <button>Post</button>
@@ -22,4 +24,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default AddPostForm;

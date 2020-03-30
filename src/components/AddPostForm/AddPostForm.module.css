@@ -1,0 +1,29 @@
+.FormWrap {
+  padding: 30px;
+}
+
+.FormInput {
+  margin-bottom: 20px;
+}
+
+.FormInput label {
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.FormInput input {
+  width: 90%;
+}
+
+.FormInput span {
+  color: #f00;
+  vertical-align: top;
+}
+
+.FormInput textarea {
+  width: 90%;
+}
+
+.FormButtons {
+  text-align: center;
+}

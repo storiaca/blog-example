@@ -7,11 +7,9 @@ import Modal from "../Modal/Modal";
 import useModal from "../../hooks/useModal";
 
 import classes from "./Blog.module.css";
-import PostForm from "../PostForm/PostForm";
+import AddPostForm from "../AddPostForm/AddPostForm";
 
 function Blog() {
-  //const [closeModal, setCloseModal] = useState(true);
-
   const { isShowing, toggle } = useModal();
 
   return (
@@ -35,7 +33,7 @@ function Blog() {
       <div>
         <Post />
         <Modal title={"Add Blog Post"} isShowing={isShowing} hide={toggle}>
-          <PostForm />
+          <AddPostForm />
         </Modal>
       </div>
     </div>
