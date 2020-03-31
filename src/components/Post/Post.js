@@ -5,7 +5,7 @@ import classes from "./Post.module.css";
 
 // https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts
 
-const Post = () => {
+const Post = ({ postContent }) => {
   const [data, setData] = useState({ resultData: [] });
   useEffect(() => {
     const fetchData = async () => {

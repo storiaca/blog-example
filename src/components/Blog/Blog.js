@@ -1,16 +1,32 @@
 import React, { useState } from "react";
+import axios from "axios";
+
+import useModal from "../../hooks/useModal";
 
 import Sidebar from "../Sidebar/Sidebar";
 import Post from "../Post/Post";
 
 import Modal from "../Modal/Modal";
-import useModal from "../../hooks/useModal";
 
-import classes from "./Blog.module.css";
 import AddPostForm from "../AddPostForm/AddPostForm";
 
-function Blog() {
+import classes from "./Blog.module.css";
+
+const Blog = () => {
   const { isShowing, toggle } = useModal();
+  const [postContent, setPostContent] = useState([]);
+
+  const addPostHandler = post => {
+    axios
+      .post(
+        "https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts",
+        post
+      )
+      .then(res => {
+        setPostContent(prevPost => [...prevPost, { id: res.id, ...post }]);
+      })
+      .catch(error => console.log(error));
+  };
 
   return (
     <div className={classes.BlogMain}>
@@ -31,13 +47,13 @@ function Blog() {
         <Sidebar />
       </div>
       <div>
-        <Post />
+        <Post postContent={postContent} />
         <Modal title={"Add Blog Post"} isShowing={isShowing} hide={toggle}>
-          <AddPostForm />
+          <AddPostForm hide={toggle} onAddPost={addPostHandler} />
         </Modal>
       </div>
     </div>
   );
-}
+};
 
 export default Blog;

@@ -27,9 +27,11 @@
 
 .ModalHeader h4 {
   margin: 5px;
+  font-family: "Comic Sans MS", sans-serif;
 }
 
 .ModalClose button {
-  background-color: none;
+  background-color: transparent;
   border: none;
+  font-size: 1.2rem;
 }
