@@ -28,6 +28,19 @@ const Blog = () => {
       .catch(error => console.log(error));
   };
 
+  const removePostHandler = postId => {
+    axios
+      .delete(
+        `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${postId}`
+      )
+      .then(res => {
+        setPostContent(prevPosts => {
+          prevPosts.filter(item => item.id !== postId);
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <div className={classes.BlogMain}>
       <div></div>
@@ -47,7 +60,7 @@ const Blog = () => {
         <Sidebar />
       </div>
       <div>
-        <Post postContent={postContent} />
+        <Post postContent={postContent} onRemovePost={removePostHandler} />
         <Modal title={"Add Blog Post"} isShowing={isShowing} hide={toggle}>
           <AddPostForm hide={toggle} onAddPost={addPostHandler} />
         </Modal>

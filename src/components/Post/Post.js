@@ -5,7 +5,7 @@ import classes from "./Post.module.css";
 
 // https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts
 
-const Post = ({ postContent }) => {
+const Post = ({ postContent, onRemovePost }) => {
   const [data, setData] = useState({ resultData: [] });
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +15,7 @@ const Post = ({ postContent }) => {
       setData(result.data);
     };
     fetchData();
-  }, []);
+  }, [postContent]);
   return (
     <div className={classes.PostMain}>
       {data.resultData.map(item => (
@@ -31,7 +31,7 @@ const Post = ({ postContent }) => {
 
             <div className={classes.SinglePostButtons}>
               <button>Edit</button>
-              <button>Delete</button>
+              <button onClick={onRemovePost.bind(this, item.id)}>Delete</button>
             </div>
           </div>
 
