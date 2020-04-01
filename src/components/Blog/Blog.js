@@ -41,6 +41,18 @@ const Blog = () => {
       .catch(err => console.log(err));
   };
 
+  // const editPostHandler = postId => {
+  //   axios
+  //     .put(
+  //       `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${postId}`
+  //     )
+  //     .then(res => {
+  //       setPostContent(prevPost => [...prevPost, { id: res.id, ...post }]);
+  //     })
+  //     .catch(error => console.log(error));
+  // };
+
+  //console.log("postContent", postContent);
   return (
     <div className={classes.BlogMain}>
       <div></div>

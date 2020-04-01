@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import useModal from "../../hooks/useModal";
+
+import EditPostForm from "../EditPostForm/EditPostForm";
+import Modal from "../Modal/Modal";
+
 import classes from "./Post.module.css";
 
 // https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts
 
 const Post = ({ postContent, onRemovePost }) => {
+  const { isShowing, toggle } = useModal();
   const [data, setData] = useState({ resultData: [] });
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +22,9 @@ const Post = ({ postContent, onRemovePost }) => {
     };
     fetchData();
   }, [postContent]);
+
+  //console.log(data.resultData);
+
   return (
     <div className={classes.PostMain}>
       {data.resultData.map(item => (
@@ -30,7 +39,7 @@ const Post = ({ postContent, onRemovePost }) => {
             </div>
 
             <div className={classes.SinglePostButtons}>
-              <button>Edit</button>
+              <button onClick={toggle}>Edit</button>
               <button onClick={onRemovePost.bind(this, item.id)}>Delete</button>
             </div>
           </div>
@@ -45,6 +54,9 @@ const Post = ({ postContent, onRemovePost }) => {
           </div>
         </div>
       ))}
+      <Modal title={"Edit Blog Post"} isShowing={isShowing} hide={toggle}>
+        <EditPostForm data={data.resultData} />
+      </Modal>
     </div>
   );
 };

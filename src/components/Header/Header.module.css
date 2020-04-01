@@ -19,12 +19,35 @@
 .HeaderNavLogo a {
   text-decoration: none;
 }
+
+.HeaderLinks {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
 .HeaderNavMenu {
   display: flex;
   align-items: center;
   list-style-type: none;
+  padding-left: 10px;
+}
+
+.HeaderNavLinks button {
+  display: none;
 }
 
 .HeaderNavMenu li {
   margin: 0 10px;
+}
+
+@media (max-width: 650px) {
+  .HeaderNavLinks button {
+    display: block;
+  }
+  .HeaderNavMenu {
+    position: relative;
+    flex-direction: row;
+    margin-top: 3rem;
+  }
 }

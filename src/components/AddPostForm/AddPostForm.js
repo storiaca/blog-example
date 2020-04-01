@@ -20,7 +20,7 @@ const AddPostForm = ({ hide, onAddPost }) => {
             type="text"
             name="titlePost"
             id="titlePost"
-            placeholder="Tilte of the post"
+            placeholder="Title of the post"
             value={title}
             onChange={event => {
               setTitle(event.target.value);

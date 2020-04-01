@@ -38,6 +38,7 @@
   border-radius: 4px;
   border: none;
   width: 75px;
+  font-family: "Comic Sans MS", sans-serif;
 }
 
 .SinglePostButtons button:last-child {
