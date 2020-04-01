@@ -7,7 +7,7 @@ const AddPostForm = ({ hide, onAddPost }) => {
 
   const submitPost = e => {
     e.preventDefault();
-    onAddPost({ title, text: message });
+    onAddPost({ title, text: message, categoryId: 0 });
     hide();
   };
 

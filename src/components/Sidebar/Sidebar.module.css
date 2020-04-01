@@ -1,7 +1,7 @@
 .SidebarMain {
   border: 1px solid #000;
   padding: 0 15px;
-  height: 100vh;
+  height: 95vh;
 }
 
 .SidebarMain h2 {
@@ -11,4 +11,15 @@
 .SidebarMain ul {
   list-style-type: none;
   padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  .SidebarMain {
+    margin: 1rem auto;
+    height: 150px;
+  }
+
+  .SidebarMain ul {
+    display: flex;
+  }
 }

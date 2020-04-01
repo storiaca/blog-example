@@ -15,8 +15,11 @@ import classes from "./Blog.module.css";
 const Blog = () => {
   const { isShowing, toggle } = useModal();
   const [postContent, setPostContent] = useState([]);
+  //const [postCategory, setPostCategory] = useState([]);
 
   const addPostHandler = post => {
+    //console.log(post);
+    //const { categoryId } = post;
     axios
       .post(
         "https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts",
@@ -26,6 +29,23 @@ const Blog = () => {
         setPostContent(prevPost => [...prevPost, { id: res.id, ...post }]);
       })
       .catch(error => console.log(error));
+
+    // axios
+    //   .post(
+    //     "https://frontend-api-test-nultien.azurewebsites.net/api/Category",
+    //     {
+    //       id: categoryId,
+    //       name: "Category 1"
+    //     }
+    //   )
+    //   .then(res => {
+    //     console.log(res);
+    //     setPostCategory(prevPost => [
+    //       ...prevPost,
+    //       { id: res.id, name: res.name }
+    //     ]);
+    //   })
+    //   .catch(error => console.log(error));
   };
 
   const removePostHandler = postId => {

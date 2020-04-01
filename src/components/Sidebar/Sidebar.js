@@ -3,7 +3,7 @@ import axios from "axios";
 
 import classes from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = ({ postCategory }) => {
   const [data, setData] = useState({ resultData: [] });
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Sidebar = () => {
       setData(result.data);
     };
     fetchData();
-  }, []);
+  }, [postCategory]);
 
   return (
     <div className={classes.SidebarMain}>
