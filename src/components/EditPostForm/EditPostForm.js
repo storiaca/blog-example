@@ -1,43 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 
 import classes from "./EditPostForm.module.css";
 
-const EditPostForm = ({ hide, data }) => {
-  const [post, setPost] = useState(data);
+const EditPostForm = ({ hide }) => {
+  // const [post, setPost] = useState(data.resultData);
 
-  const handleEditPost = e => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setPost({ ...post, [name]: value });
-    hide();
-  };
+  // const handleInputChange = event => {
+  //   event.preventDefault();
+  //   const { name, value } = event.target;
 
-  console.log(post.title);
+  //   setPost([{ ...post, [name]: value }]);
+  // };
+
   return (
     <div className={classes.FormWrap}>
       <form>
         <div className={classes.FormInput}>
-          <label htmlFor="titlePost">Title</label>
+          <label htmlFor="title">Title</label>
           <input
             type="text"
-            name="titlePost"
-            id="titlePost"
-            value={post.title}
-            onChange={handleEditPost}
+            name="title"
+            id="title"
+            // value={data.resultData.title}
+            // onChange={handleInputChange}
           />
         </div>
         <div className={classes.FormInput}>
-          <label htmlFor="textPost">Text</label>
+          <label htmlFor="text">Text</label>
           <textarea
-            name="textPost"
+            name="text"
             rows="10"
-            id="textPost"
-            value={post.text}
-            onChange={handleEditPost}
+            id="text"
+            // value={post.text}
+            // onChange={handleInputChange}
           ></textarea>
         </div>
         <div className={classes.FormButtons}>
-          <button type="submit">Edit</button>
+          <button
+          // onClick={() => {
+          //   editPost(data);
+          // }}
+          >
+            Edit
+          </button>
           <button onClick={hide}>Cancel</button>
         </div>
       </form>

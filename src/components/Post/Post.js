@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment";
+import Moment from "react-moment";
 
 import useModal from "../../hooks/useModal";
 
@@ -14,6 +14,7 @@ import classes from "./Post.module.css";
 const Post = ({ postContent, onRemovePost }) => {
   const { isShowing, toggle } = useModal();
   const [data, setData] = useState({ resultData: [] });
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
@@ -24,7 +25,23 @@ const Post = ({ postContent, onRemovePost }) => {
     fetchData();
   }, [postContent]);
 
-  //console.log(data.resultData);
+  const handleEditPost = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setData([{ ...data, ...data.resultData[0], [name]: value }]);
+    // hide();
+  };
+
+  // const editPostHandler = (post, postId) => {
+  //   axios
+  //     .put(
+  //       `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${postId}`
+  //     )
+  //     .then(res => {
+  //       setEditPost(prevPost => [...prevPost, { id: res.postId, ...post }]);
+  //     })
+  //     .catch(error => console.log(error));
+  // };
 
   return (
     <div className={classes.PostMain}>
@@ -35,7 +52,12 @@ const Post = ({ postContent, onRemovePost }) => {
               <div className={classes.SinglePostImage}></div>
               <div className={classes.SingePostTitle}>
                 <h2>{item.title}</h2>
-                <p>Posted date: {item.createdAt} at 12 by Some person</p>
+                <p>
+                  Posted date:
+                  <Moment format="YYYY.MM.DD">{item.createdAt}</Moment> at{" "}
+                  <Moment format="HH:mm">{item.createdAt}</Moment> by Some
+                  person
+                </p>
               </div>
             </div>
 
@@ -56,7 +78,7 @@ const Post = ({ postContent, onRemovePost }) => {
         </div>
       ))}
       <Modal title={"Edit Blog Post"} isShowing={isShowing} hide={toggle}>
-        <EditPostForm data={data.resultData} />
+        <EditPostForm data={data.resultData} onChange={handleEditPost} />
       </Modal>
     </div>
   );

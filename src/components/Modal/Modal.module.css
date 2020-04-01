@@ -1,7 +1,7 @@
 .Modal {
   position: fixed;
   top: 30vh;
-  left: calc(50% - 15rem);
+  left: calc(50% - 20rem);
   width: 40rem;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -34,4 +34,20 @@
   background-color: transparent;
   border: none;
   font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .Modal {
+    top: 20vh;
+    left: calc(50% - 15rem);
+    width: 30rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .Modal {
+    top: 20vh;
+    left: 1px;
+    width: 100%;
+  }
 }

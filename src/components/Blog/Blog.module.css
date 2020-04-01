@@ -38,5 +38,6 @@
 @media (max-width: 768px) {
   .BlogMain {
     display: block;
+    padding: 10px;
   }
 }

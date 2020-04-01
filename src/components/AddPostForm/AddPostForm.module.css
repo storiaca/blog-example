@@ -56,3 +56,15 @@
   width: 75px;
   font-family: "Comic Sans MS", sans-serif;
 }
+
+@media (max-width: 768px) {
+  .FormWrap {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .FormButtons button {
+    margin-bottom: 10px;
+  }
+}

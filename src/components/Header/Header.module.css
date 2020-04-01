@@ -95,3 +95,13 @@
     margin: 10px 0;
   }
 }
+
+@media (max-width: 360px) {
+  .HeaderNavLinks {
+    margin-top: 15.5rem;
+  }
+
+  .HeaderSearch input {
+    width: 65%;
+  }
+}
